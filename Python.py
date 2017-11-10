@@ -1,41 +1,45 @@
-#Python 2.7.10
+#Peter Gillis - A00347016 - CSCI3430 Assignment 09 - Python 2.7.10
+
+#Question 1
 def fOnly(list):
     return [x for x in list if isinstance(x, float)]
 
+#Question 3
 def fNonPrimes(n):
-    return list(filter(lambda x: not is_prime_number(x), range(2, n + 1)))
+    return list(filter(lambda x: not isPrimeNumber(x), range(2, n + 1)))
 
-def is_prime_number(x):
-    if x >= 2:
-        for y in range(2,x):
-            if not ( x % y ):
+#Question 3 helper function
+def isPrimeNumber(x):
+    if x > 1:
+        n = x // 2
+        for i in range(2, n + 1):
+            if x % i == 0:
                 return False
+        return True
     else:
-	return False
-    return True
+        return False
 
+#Question 4
 def speedLimit():
     while True:
         try:
             speedLimit = int(raw_input("Enter speed limit: "))
             speedGoing = int(raw_input("Enter speed you are going: "))
             if speedLimit < 0 or speedGoing < 0:
-                print "Numbers entered cannot be less than 0."
+                print "Numbers entered cannot be less than 0. Try again"
             else:
-                if speedGoing > speedLimit:
-                    fine = 200
-                if speedGoing >= speedLimit + 5:
-                    for x in range(speedLimit + 5, min(speedGoing, speedLimit + 20)):
-                        fine += 500
-                if speedGoing > speedLimit + 20:
-                    for x in range(speedLimit + 20, min(speedGoing, speedLimit + 400)):
-                        fine += 1000
-                if speedGoing > 400:
+                if speedGoing > 400 or speedGoing <= speedLimit:
                     fine = 0
+                elif speedGoing > speedLimit + 20:
+                    fine = 7700 + (1000 * (speedGoing - (speedLimit + 20)))
+                elif speedGoing >= speedLimit + 5 and speedGoing <= speedLimit + 20:
+                    fine = 200 + (500 * (speedGoing - (speedLimit + 5)))
+                else:
+                    fine = 200
                 print("Your speeding fine is: {}".format(fine))
                 break;
         except ValueError:
-            print("String is not an integer.")
+            print "Input is not an integer. Try again"
 
 #Question 4 - Tkinter
 from Tkinter import *
@@ -46,13 +50,17 @@ tkMessageBox.showinfo('This is a title', "Hello World.")
 from threading import Thread, Lock
 import datetime
 import time
+import sys
 
 mutex = Lock()
 theDate = datetime.datetime.now().strftime('%H:%M:%S')
+quit = False
 
 def findTime():
     global theDate
     while True:
+        if (quit):
+            break
         mutex.acquire()
         theDate = datetime.datetime.now().strftime('%H:%M:%S')
         mutex.release()
@@ -61,14 +69,23 @@ def findTime():
 def displayTime():
     alreadyPrinted = 0
     while True:
-        mutex.acquire()
+        if (quit):
+            break
         if alreadyPrinted != theDate:
             print(theDate)
-        mutex.release()
         alreadyPrinted = theDate
         time.sleep(0.5)
 
-Thread(target = findTime).daemon = True
-Thread(target = displayTime).daemon = True
-Thread(target = findTime).start()
-Thread(target = displayTime).start()
+def startTheProgram():
+    global quit
+    print "\nEnter q to quit.\n"
+    Thread(target = findTime).start()
+    Thread(target = displayTime).start()
+    while True:
+        quitSignal = raw_input()
+        if (quitSignal=="q"):
+            quit = True
+            print "Closing the threads & ending the program, bye!"
+            break
+        else:
+            print "\nEnter q to quit.\n"
