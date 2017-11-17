@@ -57,7 +57,7 @@ my_list = [1,2.0,'three',4, 5]
 len(my_list) # = 3
 my_list[1:] # 2,3,4,5
 my_list[:3] #1,2,3
-my_list = my_list + ['new item', '7'] #appends to the end 
+my_list = my_list + ['new item', '7'] #appends to the end
 my_list*2 #= [1,2,3,4,5,1,2,3,4,5]
 l = [1,2,3]
 l.append(4) # makes it 1,2,3,4
@@ -77,5 +77,55 @@ matrix[0][0] #returns first element of first list
 first_col = [row[0] for row in matrix] # [1,4,7] wow!
 
 #Dictionaries - does not retain order, like hashtable (key/value pairs)
-my_dict = {'key1': 'value', 'key2': 'value2'}
+my_dict = {'key1': 'value', 'key2': 'value2', 'k1': 3}
 my_dict['key1'] #returns 'value' (associated with the key)
+my_dict['key1'][0] #returns 1st char of the string
+my_dict['key1'][2].upper() #returns L
+my_dict['k1'] += 100 #adds 100
+d = {}
+d['animal'] = 'dog'
+d['answer'] = 14500 #this adds key/value pairs
+d = {'k1': {'nestkey': 'nestvalue'}}
+d['k1']['nestkey'] #returns 'nestvalue'
+d = {}
+d['k1'] = 1
+d['k2'] = 2
+d['k3'] = 3
+d.keys() # returns a list of the keys (no order)
+d.values() # returns a list of the values (no order)
+p = sorted(d.values()) # [1,2,3]
+
+#Tuples
+l = [1,2,3,2,2]
+t = (1,2,3,2,2)
+len(t) # = 3
+t[0] # = 1
+t.index(2) # = first index of 2
+t.count(2) # = 3
+t[0] = 's' # error - tuples are immutable
+#only 2 methods, count and index
+
+#Files
+f = open('test.txt')
+f.read() # outputs, cursor is now at append
+f.seek(0) #cursor is now at beginning of File
+f.readlines() #returns each line as an element in a list
+f = open('test.txt', "w") # write mode
+f.write("hello")
+f = open("test.txt", "r")
+f.read()
+for line in open('test.txt'):
+    print line
+
+#Sets - unordered unique items
+x = set()
+x.add(1) # x = {1}
+x.add(2)
+x.add(1) # wont add it
+l = [1,1,1,1,12,22,2,2,2,2,3,3,3,3,3,4,4,4]
+set(l) # gets only unique values {1,2,3,4}
+
+#booleans
+a = True
+1 > 2 # false
+b = None
