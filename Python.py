@@ -4,11 +4,11 @@
 def fOnly(list):
     return [x for x in list if isinstance(x, float)]
 
-#Question 3
+#Question 2
 def fNonPrimes(n):
     return list(filter(lambda x: not isPrimeNumber(x), range(2, n + 1)))
 
-#Question 3 helper function
+#Question 2 helper function
 def isPrimeNumber(x):
     if x > 1:
         n = x // 2
@@ -19,7 +19,7 @@ def isPrimeNumber(x):
     else:
         return False
 
-#Question 4
+#Question 3
 def speedLimit():
     while True:
         try:
@@ -42,9 +42,13 @@ def speedLimit():
             print "Input is not an integer. Try again"
 
 #Question 4 - Tkinter
-from Tkinter import *
+import Tkinter
 import tkMessageBox
-tkMessageBox.showinfo('This is a title', "Hello World.")
+root = Tkinter.Tk()
+root.withdraw()
+def question4():
+    tkMessageBox.showwarning("Hi, this is my title", "Press ok plz")
+    return
 
 #Question 5
 from threading import Thread, Lock

@@ -37,3 +37,45 @@ s = 'Hello'
 s.upper() # = HELLO
 s.lower() # = hello
 s.split('e') # = ['H', 'llo']
+
+#Print Formatting
+s = 'String'
+print 'Place my variable here: %s' %(s)
+#or in python 3:
+print('Place my variable here: %s' %(s))
+x = 13.13
+print 'Floating point number: %1.2f' %(13.145) #gets cut to 13.14
+print 'Floating point number: %1.8f' %(13.145) #13.14500000
+print 'Floating point number: %8.2f' %(13.145) #        13.14
+print 'Convert to string %r' %(123) #converts to string
+print 'First: %s, Second %s, Third %s' %('hi', 2, 'three')
+print 'First: {x}, Second {x}'.format(x='inserted')
+print 'First: {x}, Second: {y}, Third: {x}'.format(x='inserted', y='hello')
+
+#Lists
+my_list = [1,2.0,'three',4, 5]
+len(my_list) # = 3
+my_list[1:] # 2,3,4,5
+my_list[:3] #1,2,3
+my_list = my_list + ['new item', '7'] #appends to the end 
+my_list*2 #= [1,2,3,4,5,1,2,3,4,5]
+l = [1,2,3]
+l.append(4) # makes it 1,2,3,4
+l.pop() # returns the last item, and also removes it fro Lists
+x = l.pop(0) #removes 0 element, assigns to x
+l[99] #index error
+new_list = ['a','e','A', 'G','x','b','c']
+new_list.reverse() #reverse order
+new_list.sort() #sorts ASCII order
+l_1 = [1,2,3]
+l_2 = [4,5,6]
+l_3 = [7,8,9]
+matrix = [l_1, l_2, l_3]
+matrix[0] #returns list 1
+matrix[0][0] #returns first element of first list
+#list comprehensions
+first_col = [row[0] for row in matrix] # [1,4,7] wow!
+
+#Dictionaries - does not retain order, like hashtable (key/value pairs)
+my_dict = {'key1': 'value', 'key2': 'value2'}
+my_dict['key1'] #returns 'value' (associated with the key)
