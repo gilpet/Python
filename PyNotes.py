@@ -129,3 +129,192 @@ set(l) # gets only unique values {1,2,3,4}
 a = True
 1 > 2 # false
 b = None
+
+#Comparison Operators
+a == b
+a != b # same as a <> b
+1 < 2 < 3 # True
+1 < 2 and 2 < 3 # True
+1 < 3 > 2 # True
+1 < 2 or 2 < 3 #short circuit evaluation
+
+#if else statements
+x = True
+if not x:
+    print "false"
+else:
+    print "true"
+
+loc = 'Mall'
+if loc == "not mall":
+    print "nope"
+elif loc == 'bank':
+    print "still nope"
+elif loc == 'Mall':
+    print "mall"
+else:
+    print "nothing"
+
+#modulo modulus
+10 % 3 # = 1
+18 % 7 # = 4
+num % 2 == 0 # even
+num % 2 == 1 # odd
+
+#for loops
+l = [1,2,3,4,5]
+for element in l:
+    print element
+
+for num in l:
+    if num % 2 == 0:
+        print num
+    else:
+        print "odd!"
+
+l = [1,2,3,4,5]
+list_sum = 0
+for num in l:
+    list_sum += num
+
+print list_sum
+
+s = 'this is a string!'
+for item in s:
+    print item
+#prints 1 letter on each line
+
+tup = (1,2,3,4,5)
+for item in tup:
+    print item
+
+l = [(2,4),(6,8),(10,12)]
+for tup in l:
+    print tup
+    #prints all 3 tups
+
+for (t1,t2) in l:
+    print t1+t2
+#prints totals
+d = {'k1':1,'k2':2,'k3':3}
+for item in d:
+    print item
+#prints the keys
+
+#Python 3 use d.items()
+#Python 2 use d.ieritems()
+
+for k,d in d.iteritems():
+    print k
+    print d
+#k3
+#3
+#k2
+#2
+#k1
+#1
+
+x = 0
+while x < 10:
+    print 'x is currently: ',x
+    x += 1
+#prints 0 to 9
+else:
+    print "while is done"
+
+#break continue pass
+x = 0
+while x < 10:
+    print 'x is currently', x
+    print ' x is still less than 10, adding 1 to x'
+    x += 1
+    if x == 3:
+        print 'x is 3'
+    else:
+        print 'continuing' # next iteration
+        continue
+while x < 10:
+    print 'x is currently', x
+    print ' x is still less than 10, adding 1 to x'
+    x += 1
+    if x == 3:
+        print 'breaking'
+        break
+    else:
+        print 'continuing'
+#ends entire loop at x == 3
+
+#range function range()
+range(0,10) #0-9
+range(10) # same as 0,10
+x = range(0,10)
+type(x) # list
+start = 5
+stop = 20
+range(start,stop)#5-19
+range(start,stop,2)#5,7,9,11,13,15,17,19
+range(start,stop,4)#5 9 13 17
+
+for num in range(1,7):
+    print num#1-6
+#xrange does not waste memory in python 2, in python 3 xrange is just range
+for num in xrange(1,6):
+    print num
+
+#comprehensions
+l = []
+for letter in 'word':
+    l.append(letter)
+
+print l
+#['w','o','r','d']
+#BETTER WAY
+l2 = [letter for letter in 'word']
+l2 # = ['w','o','r','d']
+l3 = [x**2 for x in xrange(0,11)]
+l3 # = [0,1,4,9,16,25,36,49,64,81,100]
+l4 = [number for number in range(11) if number %2 == 0]
+l4 # = [0,2,4,6,8,10]
+#for loop way:
+l4 = []
+for number in range(11):
+    if number % 2 == 0:
+        l4.append(number)
+
+celsius = [0,10,20.1,34.5]
+fahrenheit = [(temp * (9/5.0) + 32) for temp in celsius]
+l5 = [x**2 for x in [x**2 for x in range(11)]]
+#nested list comprehensions gave power of 4
+
+
+#sample problems
+st = 'print only words that start with s in this sentence'
+for word in st.split():
+    if word[0]=='s':
+        print word
+
+#even numbers from 1 to 10
+range(0,11,2)
+
+#use list comprehensions to create a list of all numbers between 1 and 50 that
+#are divisable by 3
+l50 = [num for num in range(1,50) if num%3==0]
+
+st = 'print every word in this sentence that has an even number of letters'
+for word in s.split():
+    if len(word)%2==0:
+        print word+" is even!"
+#program that prints the integers 1 to 100 but multiples of 3 print fizz, and
+#multiples of 5 print buzz. fizzbuzz for both
+for num in xrange(1,100):
+    if num%3==0 and num%5==0:
+        print "FizzBuzz"
+    elif num%3==0:
+        print "Fizz"
+    elif num%5==0:
+        print "Buzz"
+    else:
+        print num
+
+st = "create a list of the first letters of every word in this string"
+l1 = [word[0] for word in st.split()]
