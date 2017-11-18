@@ -569,3 +569,103 @@ reduce(lambda x,y: x+y, lis)# (((47+11)+42)+13)
 max(lis) # 47
 max_find = lambda a,b: a if a>b else b
 reduce(max_find,lis)
+
+#filter()
+def evencheck(num):
+    if num%2==0:
+        return True
+    else:
+        return False
+filter(even_check,lis) # removes Falses
+filter(lambda num: num%2==0, lis) #same thing with lambda
+
+#zip()
+x = [1,2,3]
+y = [4,5,6]
+zip(x,y) #[(1,4),(2,5),(3,6)]
+a = [1,2,3,4,5]
+b = [2,2,10,1,1]
+#find largest in each index between two lists
+for pair in zip(a,b):
+    print max(pair)
+map(lambda pair: max(pair),zip(a,b))
+d1 = {'a': 1, 'b': 2}
+d2 = {'c': 4, 'd': 5}
+for i in d1:
+    print i #prints keys
+
+def switcharoo(d1,d2):
+    dout = {}
+    for d1key,d2val in zip(d1,d2.itervalues()):
+        dout[d1key] = d2val
+    return dout
+
+#enumerate()
+l = ['a','b','c']
+count = 0
+for item in l:
+    print count
+    print item
+    count += 1
+#basic way^
+for (count,item) in enumerate(l):
+    print count
+    print item
+#same thing
+for (count,item) in enumerate(l):
+    if count>=2:
+        break
+    else:
+        print item
+#similar to java for loop
+for (i,item) in enumerate(l):
+    print l[i]
+
+#all() and any()
+l = [True, True, False, False]
+all(l) # false, they are not all True
+any(l) # true, at least one is true
+
+#complex()
+complex(2,3) #real, imaginary
+complex('10+2j')
+
+#advanced functions sample problems
+#how long are all the words in the phrase
+def word_lengths(phrase):
+    return list(map(len, phrase.split()))
+#use reduce to take a list of digits and return the number they correspond to [1,2,3]->123
+def digits_to_num(digits):
+    return reduce(lambda x,y: x*10 + y,digits)
+#use filter to return the words from a lit of words which start with a target letter
+def starts_with(word_list,letter):
+    return filter(lambda x: x[0]==letter,word_list)
+#Use zip and list comprehension to return a list of the same length
+#where each value is the two strings from L1 and L2 concatenated
+#together with connector between them. Look at the example output below:
+def concatenate(L1, L2, connector):
+
+    return [word1+connector+word2 for (word1,word2) in zip(L1,L2)]
+
+#Use enumerate and other skills to return a dictionary which has the values
+#of the list as keys and the index as the value. You may assume that a
+#value will only appear once in the given list.
+def d_list(L):
+    return {key:value for value,key in enumerate(L)}
+#OR
+def d_list(L):
+    d = {}
+    for (i,item) in enumerate(L):
+        d[item] = i
+    return d
+#Use enumerate and other skills from above to return the count of the number
+#of items in the list whose value equals its index.
+def count_match_index(L):
+    return len([num for count,num in enumerate(L) if num == count])
+#OR
+def count_match_index(L):
+    matches = 0
+    for i,num in enumerate(L):
+        if i==num:
+            matches += 1
+    return matches
