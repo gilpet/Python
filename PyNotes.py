@@ -434,3 +434,40 @@ class Circle(object):
 
     def perimeter(self):
         return 2*Circle.pi*self.get_radius()
+
+#Inheritance
+class Animal(object):
+    def __init__(self):
+        print "Animal Created"
+
+    def whoAmI(self):
+        print "animal"
+
+    def eat(self):
+        print "eating"
+
+class Dog(Animal):
+    def __init__(self):
+        Animal.__init__(self)
+        print "Dog created"
+
+    def whoAmI(self):
+        print "dog"
+
+    def bark(self):
+        print "woof"
+
+
+class Book(object):
+    def __init__(self,title,author,pages):
+        print "book created"
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self): #toString()
+        return "Title: %s, Author: %s, Pages: %s " %(self.title,self.author,self.pages)
+    def __len__(self): #len override
+        return self.pages
+    def __del__(self):
+        print "book is gone!"
