@@ -125,6 +125,16 @@ x.add(1) # wont add it
 l = [1,1,1,1,12,22,2,2,2,2,3,3,3,3,3,4,4,4]
 set(l) # gets only unique values {1,2,3,4}
 
+#input raw_input
+
+#python 2:
+#raw_input() takes user input as string
+#input() takes user input then performs eval() on it
+
+#python 3:
+#input() takes user input as string
+#eval(input()) evals their input
+
 #booleans
 a = True
 1 > 2 # false
@@ -396,3 +406,31 @@ def adder(x,y):
 #as lambda:
 adder = lambda x,y: x+y
 adder(30,20) # = 50
+
+#Classes
+class Dog(object):
+    #class object attribute
+    species = 'mammal' #all objects will get this when initialized
+    def __init__(self,breed,name):
+        self.breed = breed
+        self.name = name
+
+sam = Dog(breed='lab',name='Peter')
+sam.breed # 'lab'
+
+class Circle(object):
+    #class attributes
+    pi = 3.14
+    def __init__(self,radius=1): # make radius 1 unless otherwise given
+        self.radius = radius
+    def area(self):
+        return self.radius**2*Circle.pi
+
+    def set_radius(self, new_radius):
+        self.radius = new_radius
+
+    def get_radius(self):
+        return self.radius
+
+    def perimeter(self):
+        return 2*Circle.pi*self.get_radius()
