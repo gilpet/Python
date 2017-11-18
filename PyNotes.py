@@ -720,3 +720,81 @@ func_needs_decorator = new_decorator(func_needs_decorator)#gives func_needs_deco
 @new_decorator #this gives func_needs_decorator the functionality of new_decorator
 def func_needs_decorator():
     print 'this func needs a decorator'
+
+#advanced numbers
+hex(num)
+bin(num)
+int(bin(512)[2:]) # to get binary of 512
+abs()
+round() #rounds to .0 float
+round(3.141592,2) #rounds to 3.14
+
+#advanced Strings
+s = 'hello world'#capitalize first word in strings
+from string import capwords
+withcaps = capwords(s)
+s.upper()
+s.lower()
+s.count('o') # count o's
+s.find('o') #finds first occurance of 'o'
+s = 'hello'
+s.isalnum() # check if alphanumeric
+s.isalpha() # check if alphabet
+s.islower() # check if all lowercase
+s.isspace() #check if all whitespace
+s.isupper() #check if all isUpperCase
+s.endswith('llo') #check if ends with
+s[-1] == 'o' #true (last letter)
+s.split('e') #splits string at e into 2 part list, or how ever many es there are, that many parts
+
+#advanced Sets
+s = set()
+s.add(1)
+s.add(2)
+s.add(2) #does nothing, no dupes
+s.clear()
+s = {1,2,3,4,5}
+s1 = {4,5,6,7,8}
+sc = s.copy()
+s.difference(s1) #set([1,2,3]) returns elements in s that are not in both
+s.difference_update(s1) #performs s.difference and saves it
+s.discard(2) #removes 2, if theres no 2 nothing happens
+s1 = {1,2,3}
+s2 = {1,2,4}
+s1.intersection(s2) #items common in both
+s1.intersection_update(s2) #updates s1 to items common in both
+s1.isdisjoint(s2) #checks if nothing in common
+s1.issubset(s2) #checks if s2 contains s1
+s1.issuperset(s2) #check if s1 contains s2
+s1 = {1,2,3,4}
+s2 = {3,4,5,6}
+s1.symmetric_difference(s2) # set([1, 2, 5, 6])
+s1.symmetric_difference_update(s2) #updates s1 to ^
+s1.union(s2) #all elements in either set
+s1.update(s2) #saves the union of the two
+
+ #advanced Dictionaries
+ d = {'k1': 1, 'k2': 2}
+ {x:x**2 for x in range(10)}#for key x, value x^2 for x in range0-9
+
+for k in d.iteritems():#prints keys and values
+    print k
+for k in d.itervalues():#prints values
+    print k
+
+#advanced Lists
+l = [1,2,3]
+l.append(4) #adds to end
+l.count(10) #counts occurances of 10
+#if you append a list it will add that list as an element
+#instead use extend:
+l.extend([4,5]) #-> [1,2,3,4,5]
+l.index(2) #find the index of element 2
+#will get an error if the element is not in list
+
+l.insert(2, 'inserted value') #inserts value at index 2
+l.pop() #default last items
+l.pop(0) #pops 0 index element
+l.remove('inserted value') #removes first instance of this value
+l.reverse() #perfmanently reverses list
+l.sort() #sorts in ascii order
