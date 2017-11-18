@@ -537,3 +537,35 @@ def askint():
         print "great job, it is an int"
         break
         print val
+
+#modules imports
+import math
+math.#then see all the functions
+math.sqrt(4) # = 2.0
+math.factorial(6)
+math.pow(2,3) # = 8.0
+math.gcd(x,y) # look into this for algorithms
+from math import sqrt
+#then you can do
+sqrt(4)
+
+
+#map()
+def fahrenheit(T):
+    return (9.0/5)*T + 32
+temp = [0,22.5,40,100]
+map(fahrenheit, temp) #applies function to all temp elements
+map(lambda T: (9.0/5)*T + 32, temp) # or Lambda
+a = [1,2,3]
+b = [4,5,6]
+c = [7,8,9]
+map(lambda x,y: x+y,a,b) #[5,7,9]
+map(lambda x,y,z: x+y+z,a,b,c) #[12,15,18]
+map(lambda num: num*-1, a) #makes all negative
+
+#reduce()
+lis = [47,11,42,13]
+reduce(lambda x,y: x+y, lis)# (((47+11)+42)+13)
+max(lis) # 47
+max_find = lambda a,b: a if a>b else b
+reduce(max_find,lis)
