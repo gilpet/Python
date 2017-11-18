@@ -304,6 +304,7 @@ st = 'print every word in this sentence that has an even number of letters'
 for word in s.split():
     if len(word)%2==0:
         print word+" is even!"
+
 #program that prints the integers 1 to 100 but multiples of 3 print fizz, and
 #multiples of 5 print buzz. fizzbuzz for both
 for num in xrange(1,100):
@@ -318,3 +319,80 @@ for num in xrange(1,100):
 
 st = "create a list of the first letters of every word in this string"
 l1 = [word[0] for word in st.split()]
+
+#check if num is in range
+if 7 in range(0,12) # = True
+
+#count upper and lowercase letters
+def up_low(s):
+    d={"upper":0, "lower":0}
+    for c in s:
+        if c.isupper():
+            d["upper"]+=1
+        elif c.islower():
+            d["lower"]+=1
+        else:
+            pass
+    print "Original String : ", s
+    print "No. of Upper case characters : ", d["upper"]
+    print "No. of Lower case Characters : ", d["lower"]
+
+#multiply all nums in list
+def multiply(numbers):
+    total = 1
+    for x in numbers:
+        total *= x
+    return total
+
+#Palindrome
+def palindrome(s):
+    s = s.replace(' ','') # This replaces all spaces " " with no space ''. (Fixes issues with strings that have spaces)
+    return s == s[::-1]
+
+#pangram
+import string
+
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    alphaset = set(alphabet)
+    return alphaset <= set(str1.lower())
+
+l = [1,2,3]
+help(l.count)
+
+def add(arg1, arg2):
+    return arg1+arg2
+
+x = add(7,5) #12
+y = add('hi','hello') #hihello
+def greeting(name):
+    print 'hello '+name
+
+def is_prime(n):
+    if n<2:
+        return False
+    if n==2:
+        return True
+    if n%2==0:
+        return False
+    for num in range (3,n,2):
+        if n%num==0:
+            return False
+    return True
+
+#Lambda expressions
+def square(num):
+    return num**2
+
+sq = lambda num: num**2
+sq(10) #= 100
+even = lambda num: num%2==0
+first = lambda s: s[0]
+first('hello') # = 'h'
+rev = lambda s: s[::-1]
+rev('hello') # = 'olleh'
+
+def adder(x,y):
+    return x+y
+#as lambda:
+adder = lambda x,y: x+y
+adder(30,20) # = 50
