@@ -669,3 +669,54 @@ def count_match_index(L):
         if i==num:
             matches += 1
     return matches
+
+#Decorators
+print globals()
+print globals().keys()
+print locals()
+def hello(name='Jose'):
+    print "hello "+name
+greet = hello #copy
+del hello
+greet() #still works
+
+def hello(name='Jose'):
+
+    print 'the hello() function was executed'
+
+    def greet():
+        return '\t This is inside the greet function'
+
+    def welcome():
+        return '\t This is inside the welcome function'
+    print greet()
+    print welcome()
+    print 'now we are back in hello() function'
+
+#Functions as arguments
+def hello():
+    return "hello"
+
+def other(func):
+    print "other code here"
+    print func()
+other(hello)
+
+#Creating Decorators
+def new_decorator(func):
+
+    def wrap_func():
+        print 'Code here, before executing the func'
+
+        func()
+
+        print 'Code here will execute after the func()'
+    return wrap_func
+
+def func_needs_decorator():
+    print 'this func needs a decorator'
+
+func_needs_decorator = new_decorator(func_needs_decorator)#gives func_needs_decorator the functionality of new_decorator
+@new_decorator #this gives func_needs_decorator the functionality of new_decorator
+def func_needs_decorator():
+    print 'this func needs a decorator'
