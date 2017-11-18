@@ -456,7 +456,29 @@ class Dog(Animal):
 
     def bark(self):
         print "woof"
+class Person:
 
+    def __init__(self, first, last):
+        self.firstname = first
+        self.lastname = last
+
+    def Name(self):
+        return self.firstname + " " + self.lastname
+
+class Employee(Person):
+
+    def __init__(self, first, last, staffnum):
+        Person.__init__(self,first, last)
+        self.staffnumber = staffnum
+
+    def GetEmployee(self):
+        return self.Name() + ", " +  self.staffnumber
+
+x = Person("Marge", "Simpson")
+y = Employee("Homer", "Simpson", "1007")
+
+print(x.Name())
+print(y.GetEmployee())
 
 class Book(object):
     def __init__(self,title,author,pages):
@@ -471,3 +493,47 @@ class Book(object):
         return self.pages
     def __del__(self):
         print "book is gone!"
+
+#try Catch except Exception
+try:
+    2 + 's'
+except TypeError:
+    print "There was a type error"
+finally:
+    print "finally block accessed"
+#OR don't specify the error
+try:
+    2 + 's'
+except:
+    print "There was a type error"
+finally: #runs regardless
+    print "finally block accessed"
+
+try:
+    f = open('testfile', 'w')
+    f.write('Test write this')
+except:
+    print 'error writing to the file'
+else: #else no exception
+    print "file write was a success"
+
+#try to read file that isn't there
+try:
+    f = open('testfile', "r")
+    f.write('Test write this')
+except:
+    print 'error writing to the file'
+else: #else no exception
+    print "file write was a success"
+
+
+def askint():
+    while True:
+        try:
+            val = int(raw_input("please enter an int: "))
+        except:
+            print "looks like that was not an int"
+            continue
+        print "great job, it is an int"
+        break
+        print val
