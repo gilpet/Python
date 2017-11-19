@@ -141,3 +141,16 @@ def swap_case(s):
 #split string by space, then join by hyphen -
 def split_and_join(line):
     return '-'.join(line.split())
+
+#simple print
+def print_full_name(a, b):
+    print("Hello "+a+" "+b+"! You just delved into python.")
+
+#check if string contains various types of chars
+if __name__ == '__main__':
+    s = input()
+    print(any(c.isalnum() for c in s))
+    print(any(c.isalpha() for c in s))
+    print(any(c.isdigit() for c in s))
+    print(any(c.islower() for c in s))
+    print(any(c.isupper() for c in s))
