@@ -167,3 +167,18 @@ s1=set(map(int, ((input().split()))))
 n = int(input())
 s2=set(map(int, ((input().split()))))
 print(*sorted(list(s1.symmetric_difference(s2))),sep="\n")
+
+#check if sets contain numbers in array and increment value list comprehension
+n,m = input().split()
+arr = input().split()
+a = set(input().split())
+b = set(input().split())
+happiness = [1 if x in a else -1 if x in b else 0 for x in arr]
+print(sum(happiness))
+
+#count unique items in set
+n = int(input())
+s = set()
+for _ in range(n):
+    s.add(input())
+print(len(s))
