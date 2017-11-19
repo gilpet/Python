@@ -66,7 +66,8 @@ x = l.pop(0) #removes 0 element, assigns to x
 l[99] #index error
 new_list = ['a','e','A', 'G','x','b','c']
 new_list.reverse() #reverse order
-new_list.sort() #sorts ASCII order
+new_list.sort() #sorts ASC
+II order
 l_1 = [1,2,3]
 l_2 = [4,5,6]
 l_3 = [7,8,9]
@@ -799,6 +800,7 @@ l.pop(0) #pops 0 index element
 l.remove('inserted value') #removes first instance of this value
 l.reverse() #perfmanently reverses list
 l.sort() #sorts in ascii order
+sorted(l) # creates new sorted list, leaving original unaffected
 
 
 #Collections
