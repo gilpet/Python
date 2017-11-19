@@ -129,7 +129,8 @@ set(l) # gets only unique values {1,2,3,4}
 
 #python 2:
 #raw_input() takes user input as string
-#input() takes user input then performs eval() on it
+#input() takes user input then performs
+() on it
 
 #python 3:
 #input() takes user input as string
@@ -798,3 +799,34 @@ l.pop(0) #pops 0 index element
 l.remove('inserted value') #removes first instance of this value
 l.reverse() #perfmanently reverses list
 l.sort() #sorts in ascii order
+
+
+#Collections
+from collections import Counter
+l = [1,1,1,1,1,1,2,2,2,2,2,2,33,3,3,44,4,4,5,55,]
+d = Counter(l) # Counter({1: 6, 2: 6, 3: 2, 4: 2, 5: 1, 33: 1, 44: 1, 55: 1})
+for k in d.iteritems():#prints keys and values
+    print k
+#(1, 6)
+#(2, 6)
+#(3, 2)
+#(4, 2)
+#(5, 1)
+#(33, 1)
+#(44, 1)
+#(55, 1)
+s = 'ssssssvavavavavabababbababa'
+Counter(s) #same thing
+s = 'i wonder how many times times times these these words show pu up up up up'
+words = s.split()
+c = Counter(words) #same thing
+c.most_common() #puts them in ordered
+c.most_common(3) #show top 3 most common words
+sum(c.values()) #total of all counts
+c.clear() #reset counts
+list(c) #list unique elements
+set(c) #convert to set
+dict(c) #convert to dict
+
+#defaultdict
+atom
