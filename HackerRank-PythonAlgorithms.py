@@ -52,3 +52,20 @@ if __name__ == '__main__':
                 eval("l."+y[0]+'('+y[1]+')')
             elif len(y)==1:
                 eval("l."+y[0]+"()")
+
+#convert string input to list of ints, then to tuple, then print hash(tuple)
+if __name__ == '__main__':
+    n = int(input())
+    input_list = input().split()
+    input_list = [int(x) for x in input_list]
+    t = tuple(input_list)
+    print(hash(t))
+
+#find 2nd largest unique number (conver to set to remove dupes, sort, then [-2])
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    x = set(arr)
+    y = list(x)
+    y.sort()
+    print(y[-2])
