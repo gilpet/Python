@@ -154,3 +154,16 @@ if __name__ == '__main__':
     print(any(c.isdigit() for c in s))
     print(any(c.islower() for c in s))
     print(any(c.isupper() for c in s))
+
+#sum and average of distinct items in a list (set)
+def average(array):
+    x = set(array)
+    return sum(x)/len(x)
+
+#symmetric_difference symmetric difference two sets
+#print all items in list
+m = int(input())
+s1=set(map(int, ((input().split()))))
+n = int(input())
+s2=set(map(int, ((input().split()))))
+print(*sorted(list(s1.symmetric_difference(s2))),sep="\n")
