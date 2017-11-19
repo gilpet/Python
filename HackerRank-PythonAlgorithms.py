@@ -65,10 +65,7 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     n = int(input())
     arr = map(int, input().split())
-    x = set(arr)
-    y = list(x)
-    y.sort()
-    print(y[-2])
+    print sorted(list(set(arr)))[-2]
 
 #find all occurances of 2nd lowest score in list of names,grade
 if __name__ == '__main__':
@@ -78,3 +75,69 @@ if __name__ == '__main__':
 
     second_highest = sorted(list(set([marks for name, marks in marksheet])))[1]
     print('\n'.join([a for a,b in sorted(marksheet) if b == second_highest]))
+
+#find avg mark of queried studient to 2 decimal places python2 (reduce)
+if __name__ == '__main__':
+    n = int(raw_input())
+    student_marks = {}
+    for _ in range(n):
+        line = raw_input().split()
+        name, scores = line[0], line[1:]
+        scores = map(float, scores)
+        student_marks[name] = scores
+    query_name = raw_input()
+    print('%2.2f'%(reduce(lambda x,y: x+y, student_marks[query_name])/len(student_marks[query_name])))
+
+#more simply
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    print('%2.2f'%(sum(student_marks[query_name])/len(student_marks[query_name])))
+
+#regex
+import re
+for _ in range(int(input())):
+    s = input()
+    print('Valid' if all([re.search(r, s) for r in
+    [r'[A-Za-z0-9]{10}',r'([A-Z].*){2}',r'([0-9].*){3}']])
+    and not re.search(r'.*(.).*\1', s) else 'Invalid')
+    #wrapped lined for readability
+
+#Nested for loops:
+if __name__ == '__main__':
+    x, y, z, n = (int(input()) for _ in range(4))
+    l = []
+    for a in range(0,x+1):
+        for b in range(0,y+1):
+            for c in range(0,z+1):
+                if a+b+c!=n:
+                    l.append([a,b,c])
+    print(l)
+#same thing with list comprehension
+if __name__ == '__main__':
+    x, y, z, n = (int(input()) for _ in range(4))
+    print ([[a,b,c] for a in range(0,x+1) for b in range(0,y+1) for c in range(0,z+1) if a + b + c != n ])
+
+#convert upper to lower and leave the rest alone
+#for loop method:
+def swap_case(s):
+    l = list(s)
+    for (i,char) in enumerate(l):
+        if l[i].isalpha:
+            if l[i].isupper():
+                l[i] = l[i].lower()
+            elif s[i].islower():
+                l[i] = l[i].upper()
+    return ''.join(l)
+#much easier built in:
+def swap_case(s):
+    return s.swapcase()
+
+#split string by space, then join by hyphen -
+def split_and_join(line):
+    return '-'.join(line.split())
