@@ -130,8 +130,7 @@ set(l) # gets only unique values {1,2,3,4}
 
 #python 2:
 #raw_input() takes user input as string
-#input() takes user input then performs
-() on it
+#input() takes user input then performs () on it
 
 #python 3:
 #input() takes user input as string
@@ -216,9 +215,9 @@ for item in d:
 #Python 3 use d.items()
 #Python 2 use d.ieritems()
 
-for k,d in d.iteritems():
+for k,v in d.items():
     print k
-    print d
+    print v
 #k3
 #3
 #k2
@@ -280,6 +279,7 @@ for letter in 'word':
 
 print l
 #['w','o','r','d']
+#list comprehension
 #BETTER WAY
 l2 = [letter for letter in 'word']
 l2 # = ['w','o','r','d']
@@ -305,6 +305,8 @@ for word in st.split():
     if word[0]=='s':
         print word
 
+#solved using list comprehension
+print([word for word in st.split() if word[0]=='s'])
 #even numbers from 1 to 10
 range(0,11,2)
 
@@ -317,6 +319,8 @@ for word in s.split():
     if len(word)%2==0:
         print word+" is even!"
 
+#solved using list comprehension
+print([word for word in st.split() if len(word)%2==0])
 #program that prints the integers 1 to 100 but multiples of 3 print fizz, and
 #multiples of 5 print buzz. fizzbuzz for both
 for num in xrange(1,100):
@@ -329,6 +333,8 @@ for num in xrange(1,100):
     else:
         print num
 
+#solved using list comprehension
+print(*['fizzbuzz' if num%3==0 and num%5==0 else 'fizz' if num%3==0 else 'buzz' if num%5==0 else num for num in range(1,100)], sep='\n')
 st = "create a list of the first letters of every word in this string"
 l1 = [word[0] for word in st.split()]
 
