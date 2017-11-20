@@ -499,8 +499,9 @@ class Book(object):
         return "Title: %s, Author: %s, Pages: %s " %(self.title,self.author,self.pages)
     def __len__(self): #len override
         return self.pages
-    def __del__(self):
+    def __del__(self): #del book
         print "book is gone!"
+
 
 #try Catch except Exception
 try:
@@ -627,7 +628,7 @@ for (count,item) in enumerate(l):
         print item
 #similar to java for loop
 for (i,item) in enumerate(l):
-    print l[i]
+    print l[i]#same as print item
 
 #all() and any()
 l = [True, True, False, False]
