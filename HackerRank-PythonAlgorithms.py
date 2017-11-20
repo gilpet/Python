@@ -30,11 +30,17 @@ def mutate_string(string, position, character):
 def count_substring(string, sub_string):
     counter = 0
     sub_len = len(sub_string)
-    for i in range(0, len(string)):
+    for i in range(len(string)):
         if string[i] == sub_string[0]:
             if string[i:(i + sub_len)] == sub_string:
                 counter = counter + 1
     return counter
+
+#converted this to list comprehension
+def count_substring(string, sub_string):
+    return sum([1 if string[i] == sub_string[0] and string[i:(i+ len(sub_string))] ==
+    sub_string else 0 for i in range(len(string))])
+    #wrapped line for readability
 
 #take string commands and perform eval on them
 if __name__ == '__main__':
@@ -182,3 +188,31 @@ s = set()
 for _ in range(n):
     s.add(input())
 print(len(s))
+
+#union of two sets (elements in either set, join in SQL)
+n = int(input())
+ln = set(input().split())
+b = int(input())
+lb = set(input().split())
+print(len(ln.union(lb)))
+
+#intersction (elements in both sets, inner join in SQL)
+n = int(input())
+ln = set(input().split())
+b = int(input())
+lb = set(input().split())
+print(len(ln.intersection(lb)))
+
+#difference (left join in SQL)
+n = int(input())
+ln = set(input().split())
+b = int(input())
+lb = set(input().split())
+print(len(ln.difference(lb)))
+
+#symmetric difference (opposite of inner join in SQL)
+n = int(input())
+ln = set(input().split())
+b = int(input())
+lb = set(input().split())
+print(len(ln.symmetric_difference(lb)))
