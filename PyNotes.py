@@ -849,3 +849,9 @@ re.search(r'([A-Z].*){2}') #at least 2 capital letters
 re.search(r'([0-9].*){3}') #at least 3 digits
 re.findall('match','look for a match here','look for anothethere') #returns list of matches
 #could then to len() on this to find num
+
+#Recursion
+def fact(n):
+    if n<=1:
+        return 1
+    return n * fact(n - 1)
