@@ -8,7 +8,7 @@ if __name__ == '__main__':
         def fizzNormal():
             global normal_time
             start = time.time()
-            for num in range(1,100000):
+            for num in range(1,100):
                 if num%3==0 and num%5==0:
                     print("FizzBuzz")
                 elif num%3==0:
@@ -22,7 +22,7 @@ if __name__ == '__main__':
         def fizzListComp():
             global list_comp_time
             start = time.time()
-            print(*['fizzbuzz' if num%3==0 and num%5==0 else 'fizz' if num%3==0 else 'buzz' if num%5==0 else num for num in range(1,100000)], sep='\n')
+            print(*['fizzbuzz' if num%3==0 and num%5==0 else 'fizz' if num%3==0 else 'buzz' if num%5==0 else num for num in range(1,100)], sep='\n')
             end = time.time()
             list_comp_time = (end - start)
         fizzNormal()
