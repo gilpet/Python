@@ -1,4 +1,4 @@
-#number^2 up to n python 3
+#nnumber^2 up to n python 3
 [print(i**2) for i in range(n)]
 
 #leap year
