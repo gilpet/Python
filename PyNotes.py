@@ -1,4 +1,4 @@
-#python 2 numbers (int, float)
+#ppython 2 numbers (int, float)
 3/2 # = 1
 3.0/2 # = 1.5
 3/2.0 # = 1.5
