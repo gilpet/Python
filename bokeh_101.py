@@ -1,5 +1,5 @@
 from bokeh.plotting import figure
-from bokeh.io import output_file, show
+from bokeh.io import output_file, show, save
 import pandas
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
     f.line(x,y)
 
-    show(f)
+    save(f)
 
     '''x = [1,2,3,4,5]
     y = [6,7,8,9,10]
