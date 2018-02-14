@@ -897,3 +897,57 @@ def fact(n):
     if n<=1:
         return 1
     return n * fact(n - 1)
+
+#defaultdict default dict
+from collections import defaultdict
+d = {'k1':1}#normal dict, get keyError if you call k2
+d = defaultdict(object)
+d = defaultdict(lambda: 0)
+d['randomkey'] #will give value of 0 by default
+
+
+#ordereddict ordered dict (remembers order contents are added in)
+from collections import ordereddict
+d = OrderedDict()
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+for k,v in d.items():
+    print k.v#in order
+'''
+you can check if dictionaries are equal using d1=d2, if you are
+doing this with OrderedDict, they must be in the same order too
+'''
+
+from collections import namedtuple
+Dog = namedtuple('Dog','age breed name')#first arg is name of class, then attributes all in one space separated string
+sam = Dog(age=2,breed='lab',name='Sammy')
+#can call sam[0] or sam.age for Age
+
+import datetime
+t = datetime.time(5,25,1)
+t.hour #5
+t.minute #25
+datetime.time.max #datetime.time(23, 59, 59, 999999)
+datime.time.min   #datetime.time(0,0,0,0)
+datetime.date.today() # datetime.date(2018, 2, 14)
+today.year
+today.month
+d1 = datetime.date(2015,3,11)
+print d1
+d2 = d1.replace(year=1990)
+d1-d2 #datetime.timedelta(9131)
+
+
+#timeit time it
+import timeit
+timeit.timeit('"-".join(str(n) for n in range(100))',number=10000)
+timeit.timeit('"-".join([str(n) for n in range(100)])',number=10000)
+%timeit "-".join([str(n) for n in range(100))
+
+#string IO stringIO, cStringIO is faster apparently
+import stringIO #for treating strings as Files
+message = "this is a string"
+f = StringIO.StringIO(message)
+f.read()
+f.write()
